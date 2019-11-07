@@ -5,7 +5,7 @@ class dbConnection{
 	public $servername = 'localhost';
 	public $username = 'root';
 	public $password = '';
- 	public $databasename ='rice_project';
+ 	public $databasename ='plantation';
 
 
 	function connect(){
@@ -13,11 +13,11 @@ class dbConnection{
 
 			$this->conn = new PDO("mysql:host=$this->servername; dbname=$this->databasename;",$this->username,$this->password);
 			return $this->conn;
-			
+
 		} catch (OPDException $e) {
 			return $e->getMessage();
 		}
-	}  
+	}
 
 	function fetchdata()
 

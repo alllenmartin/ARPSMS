@@ -25,15 +25,15 @@ require 'db.php';
                 </div>
               </div>
 
-	
+
 </div>
-	
+
 </div>
-	
+
 </div>
 
   <?php
 include ('includes/script.php');
-// include ('includes/footer.php');
+include ('includes/footer.php');
 
   ?>

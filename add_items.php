@@ -55,18 +55,18 @@ require 'includes/db.php';
             </li>
 
             <!-- Nav Item - Alerts -->
-            
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-       
 
-          
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php
-            
+
             if (isset($_SESSION['email'])) {
             $sql = "SELECT * FROM register_db WHERE email='".$_SESSION['email']."'";
             $result = mysqli_query($conn,$sql);
@@ -74,13 +74,13 @@ require 'includes/db.php';
             while ($user = mysqli_fetch_object($result)) {
             ?>
             <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: bold;"><?php echo $user->first_name; ?>   <?php echo $user->last_name;  ?></span>
-            <?
+            <?php
             }
 
           }
 
             ?>
-               
+
              <?php
 
 
@@ -134,7 +134,7 @@ require 'includes/db.php';
           <!-- <h1 class="h3 mb-2 text-gray-800">Orders</h1> -->
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-           
+
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -157,10 +157,10 @@ require 'includes/db.php';
                   <tbody>
                    <form>
                      <td><input type="" name="" placeholder="Item" class="form-control"></td>
-                      <td><input type="" name="" placeholder="Item" class="form-control"></td>
-                       <td><input type="" name="" placeholder="Item" class="form-control"></td>
-                       <td><button class="btn btn-sm btn-info">Add</button></td>
-                        
+                      <td><input type="" name="" placeholder="$0.00" class="form-control"></td>
+                       <td><input type="" name="" placeholder="Tractors,seeds, etc." class="form-control"></td>
+                       <td><button class="btn btn-sm btn-info"><span class="fa fa-plus"></span>&emsp;Add</button></td>
+
                    </form>
                   </tbody>
                 </table>
@@ -170,11 +170,9 @@ require 'includes/db.php';
 
         </div>
 
-          
+
   <?php
 include ('includes/script.php');
 include ('includes/footer.php');
 
   ?>
-
-  

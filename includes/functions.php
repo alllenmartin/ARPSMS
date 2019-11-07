@@ -1,6 +1,6 @@
 <?php
 
-    define('DBINFO', 'mysql:host=localhost;dbname=kawira');
+    define('DBINFO', 'mysql:host=localhost;dbname=plantation');
     define('DBUSER','root');
     define('DBPASS','');
 
@@ -18,6 +18,6 @@
             return false;
         }
     }
-    
+
 
 ?>

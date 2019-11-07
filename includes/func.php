@@ -59,7 +59,7 @@
 				$rowcount = mysqli_num_rows($result);
 
 
-				if ($rowcount > 0) {
+				if ($rowcount < 0) {
 					header("Location:../register.php?error=Exists");
 					exit();
 				}
@@ -155,11 +155,11 @@
 					header("Location:../farmer_page.php?Success");
 			        exit();
 			}
-		else
-		{
-			header("Location:../login.php?error=wrongpassword1");
-			exit();
-			}
+		// else
+		// {
+		// 	header("Location:../login.php?error=wrongpassword1");
+		// 	exit();
+		// 	}
 		}
 		else
 		{

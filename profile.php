@@ -57,18 +57,18 @@ require 'includes/display.php';
             </li>
 
             <!-- Nav Item - Alerts -->
-            
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-       
 
-          
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php
-            
+
             if (isset($_SESSION['email'])) {
             $sql = "SELECT * FROM register_db WHERE email='".$_SESSION['email']."'";
             $result = mysqli_query($conn,$sql);
@@ -76,20 +76,17 @@ require 'includes/display.php';
             while ($user = mysqli_fetch_object($result)) {
             ?>
             <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: bold;"><?php echo $user->first_name; ?>   <?php echo $user->last_name;  ?></span>
-            <?
+            <?php
             }
 
           }
 
             ?>
-               
+
              <?php
-
-
-          $image = "SELECT file FROM register_db WHERE  email='".$_SESSION['email']."' ";
-          $result = mysqli_query($conn,$image);
-          $path=mysqli_fetch_assoc($result) or die("Could not fetch array : " .mysqli_error($conn));
-
+                  $image = "SELECT file FROM register_db WHERE  email='".$_SESSION['email']."' ";
+                  $result = mysqli_query($conn,$image);
+                  $path=mysqli_fetch_assoc($result) or die("Could not fetch array : " .mysqli_error($conn));
             ?>
                 <img class="img-profile rounded-circle" src="<?php echo 'includes/image/'.$path['file'];?>">
               </a>
@@ -131,7 +128,7 @@ require 'includes/display.php';
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <a href="report.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
-        
+
           <!-- Content Row -->
           <div class="row">
 
@@ -180,7 +177,7 @@ require 'includes/display.php';
                         <div class="col-auto">
                           <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800 text-info"><?php echo $username;?></div>
                         </div>
-                        
+
                       </div>
                     </div>
                     <div class="col-auto">
@@ -210,7 +207,7 @@ require 'includes/display.php';
           </div>
 
           <!-- Content Row -->
-          
+
           <div class="row">
 
             <!-- Area Chart -->
@@ -234,7 +231,7 @@ require 'includes/display.php';
             <div class="col-lg-12 mb-12"><br>
 
               <!-- Project Card Example -->
-             
+
 
               <!-- Color System -->
               <div class="row">
@@ -312,13 +309,10 @@ require 'includes/display.php';
                 <!-- Card Body -->
                 <div class="card-body">
                  <?php
-
-
-          $image = "SELECT file FROM register_db WHERE  email='".$_SESSION['email']."' ";
-          $result = mysqli_query($conn,$image);
-          $path=mysqli_fetch_assoc($result) or die("Could not fetch array : " .mysqli_error($conn));
-
-            ?>
+                      $image = "SELECT file FROM register_db WHERE  email='".$_SESSION['email']."' ";
+                      $result = mysqli_query($conn,$image);
+                      $path=mysqli_fetch_assoc($result) or die("Could not fetch array : " .mysqli_error($conn));
+                  ?>
                 <img class="img-profile thumbnail" style="width: 100%;" src="<?php echo 'includes/image/'.$path['file'];?>">
               </a>
                 </div>
@@ -326,7 +320,7 @@ require 'includes/display.php';
             </div>
           </div>
 
-       
+
         </div>
         <!-- /.container-fluid -->
 
@@ -372,7 +366,7 @@ require 'includes/display.php';
       </div>
     </div>
   </div>
-          
+
   <?php
 include ('includes/script.php');
 

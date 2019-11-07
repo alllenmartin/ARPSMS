@@ -1,6 +1,6 @@
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer class="sticky-footer fixed-bottom">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; ARPSMS 2019</span>

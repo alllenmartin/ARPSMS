@@ -226,7 +226,7 @@
             while ($user = mysqli_fetch_object($result)) {
             ?>
             <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: bold;"><?php echo $user->first_name; ?>   <?php echo $user->last_name;  ?></span>
-            <?
+            <?php
             }
 
           }
@@ -289,7 +289,7 @@
               elseif ($_GET['error'] == "error") {
               echo '<div class="alert alert-danger" role="alert">An Error Occured! Please Try Again!</div>';
               }
-            } 
+            }
 
                ?>
               <div class="table-responsive">

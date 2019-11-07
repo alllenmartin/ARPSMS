@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$databasename ="rice_project";
+$databasename ="plantation";
 
 try{
     $conn = mysqli_connect($servername,$username,$password,$databasename);

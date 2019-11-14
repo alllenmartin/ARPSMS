@@ -1,4 +1,5 @@
 <?php
+require 'includes/ses2.php';
 include ('includes/header.php');
 include ('nav_bar/navbar_super.php');
 require 'includes/db1.php';
@@ -129,9 +130,12 @@ require 'includes/db1.php';
             ?>
 
              <?php
-                    $image = "SELECT file FROM register_db WHERE  email='".$_SESSION['email']."' ";
-                    $result = mysqli_query($conn,$image);
-                    $path=mysqli_fetch_assoc($result) or die("Could not fetch array : " .mysqli_error($conn));
+
+
+          $image = "SELECT file FROM register_db WHERE  email='".$_SESSION['email']."' ";
+          $result = mysqli_query($conn,$image);
+          $path=mysqli_fetch_assoc($result) or die("Could not fetch array : " .mysqli_error($conn));
+
             ?>
                 <img class="img-profile rounded-circle" src="<?php echo 'includes/image/'.$path['file'];?>">
               </a>
@@ -447,6 +451,7 @@ require 'includes/db1.php';
 
         </div>
         <!-- /.container-fluid -->
+
       </div>
       <!-- End of Main Content -->
 

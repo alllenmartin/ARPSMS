@@ -1,4 +1,5 @@
 <?php
+require 'includes/ses3.php';
 include ('includes/header.php');
 include ('nav_bar/navbar.php');
 require 'includes/db1.php';
@@ -56,11 +57,11 @@ require 'includes/db1.php';
             </li>
 
             <!-- Nav Item - Alerts -->
-            
+
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications 
+            <a class="nav-link" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications
                 <?php
                 include_once ('includes/functions.php');
                 $query = "SELECT * FROM `notifications` where `status` = 'unread' order by `date` DESC";
@@ -85,14 +86,14 @@ require 'includes/db1.php';
                          ?>
                          " class="dropdown-item" href="view_comment.php?id=<?php echo $i['id'] ?>">
                 <small><i><?php echo date('F j, Y, g:i a',strtotime($i['date'])) ?></i></small><br/>
-                  <?php 
-                  
+                  <?php
+
                 if($i['type']=='comment'){
                     echo "Someone commented <br>on your post.";
                 }else if($i['type']=='like'){
                     echo ucfirst($i['name'])." <br>liked your post.";
                 }
-                  
+
                   ?>
                 </a>
               <div class="dropdown-divider"></div>
@@ -106,14 +107,14 @@ require 'includes/db1.php';
           </li>
         </ul>
 
-          
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php
-            
+
             if (isset($_SESSION['email'])) {
             $sql = "SELECT * FROM register_db WHERE email='".$_SESSION['email']."'";
             $result = mysqli_query($conn,$sql);
@@ -121,13 +122,13 @@ require 'includes/db1.php';
             while ($user = mysqli_fetch_object($result)) {
             ?>
             <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: bold;"><?php echo $user->first_name; ?>   <?php echo $user->last_name;  ?></span>
-            <?
+            <?php
             }
 
           }
 
             ?>
-               
+
              <?php
 
 
@@ -174,10 +175,10 @@ require 'includes/db1.php';
             <a href="report.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
-         
+
           <!-- Content Row -->
           <div class="row">
-        
+
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
@@ -258,7 +259,7 @@ require 'includes/db1.php';
           </div>
 
           <!-- Content Row -->
-          
+
           <div class="row">
 
             <!-- Area Chart -->
@@ -461,7 +462,3 @@ include ('includes/script.php');
 include ('includes/footer.php');
 
   ?>
-
-  
-
-  

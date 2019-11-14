@@ -108,67 +108,58 @@
 			}
 			else
 				{
-			// Checks if the SQL is correct
-			$sql = "SELECT * FROM register_db WHERE email = ? OR password = ?;";
-			$stmt = mysqli_stmt_init($conn);
-			if (!mysqli_stmt_prepare($stmt,$sql)) {
-			header("Location:../login.php?error=Sqle");
-			exit();
+					// Checks if the SQL is correct
+					$sql = "SELECT * FROM register_db WHERE email = ? OR password = ?;";
+					$stmt = mysqli_stmt_init($conn);
+					if (!mysqli_stmt_prepare($stmt,$sql)) {
+					header("Location:../login.php?error=Sqle");
+					exit();
 
 			}else
 			{
-			mysqli_stmt_bind_param($stmt,"ss",$email,$email);
-			mysqli_stmt_execute($stmt);
-			$result =mysqli_stmt_get_result($stmt);
+							mysqli_stmt_bind_param($stmt,"ss",$email,$email);
+							mysqli_stmt_execute($stmt);
+							$result =mysqli_stmt_get_result($stmt);
 
-			if ($row = mysqli_fetch_assoc($result))
-			 {
-			$chekPass = password_verify($password,$row['password']);
-			$role = $row['role'];
-			if ($chekPass == FALSE)
-			{
-			header("Location:../login.php?error=wrongpassword");
-			exit();
-			}
-			else if ($chekPass == TRUE)
-			{
-			session_start();
-			$_SESSION['email'] = $row['email'];
-			$_SESSION['role'] = $role;
-			$_SESSION['id']= $row['id'];
-			$_SESSION['username']= $row['username'];
-			$_SESSION['file']= $row['file'];
-			$_SESSION['address'] = $row['address'];
-			$_SESSION['phone'] = $row['phone'];
-			$_SESSION['scheme'] = $row['scheme'];
-			$_SESSION['last_login_timestamp'] = time();
+							if ($row = mysqli_fetch_assoc($result))
+							 {
+									$chekPass = password_verify($password,$row['password']);
+									$role = $row['role'];
+									if ($chekPass == FALSE)
+									{
+										header("Location:../login.php?error=wrongpassword");
+										exit();
+									}
+									else if ($chekPass == TRUE)
+									{
+										session_start();
+										$_SESSION['email'] = $row['email'];
+										$_SESSION['role'] = $role;
+										$_SESSION['user_id']= $row['user_id'];
+										$_SESSION['last_login_timestamp'] = time();
 
 
-			if ($role == '1') {
-				header("Location:../index.php?Success");
-			exit();
-
-			}elseif ($role == '2') {
-				header("Location:../supervisor_page.php?Success");
-			exit();
-			}elseif ($role == '3') {
-					header("Location:../farmer_page.php?Success");
-			        exit();
-			}
-		// else
-		// {
-		// 	header("Location:../login.php?error=wrongpassword1");
-		// 	exit();
-		// 	}
+										if ($role == '1') {
+											header("Location:../index.php?Success");
+										  exit();
+										}elseif ($role == '2') {
+											header("Location:../supervisor_page.php?Success");
+											exit();
+										}elseif ($role == '3') {
+												header("Location:../farmer_page.php?Success");
+										        exit();
+										}elseif ($role == '') {
+												header("Location:../404.php?");
+										       exit();
+										}
+									else
+									{
+										header("Location:../login.php?error=wrongpassword1");
+										exit();
+										}
+								}
 		}
-		else
-		{
-			header("Location:../login.php?error=nosuchuser");
-			exit();
-			}
-		}
-		}
-
+}
 		}
 
 }

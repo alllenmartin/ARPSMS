@@ -1,4 +1,5 @@
 <?php
+require 'includes/ses2.php';
 include ('includes/header.php');
 include ('nav_bar/navbar_admin.php');
 require 'includes/db1.php';
@@ -369,6 +370,4 @@ require 'includes/display.php';
 
   <?php
 include ('includes/script.php');
-
-
   ?>

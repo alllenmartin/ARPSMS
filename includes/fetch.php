@@ -3,7 +3,7 @@ require 'includes/db1.php';
 
 
 	// Fetch farm details
- $sqlinfo = "SELECT * FROM orders JOIN products ON orders.order_id = products.product_id";
+ $sqlinfo = "SELECT * FROM orders O JOIN products P , register_db R WHERE R.user_id = O.user_id AND O.product_id=P.product_id";
  $result = mysqli_query($conn, $sqlinfo);
 
  $sql1 = "SELECT fnumber FROM farms F,register_db R WHERE F.farm_id = R.user_id ";

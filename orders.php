@@ -56,18 +56,18 @@ require 'includes/display.php';
             </li>
 
             <!-- Nav Item - Alerts -->
-            
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-       
 
-          
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php
-            
+
             if (isset($_SESSION['email'])) {
             $sql = "SELECT * FROM register_db WHERE email='".$_SESSION['email']."'";
             $result = mysqli_query($conn,$sql);
@@ -75,13 +75,13 @@ require 'includes/display.php';
             while ($user = mysqli_fetch_object($result)) {
             ?>
             <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-weight: bold;"><?php echo $user->first_name; ?>   <?php echo $user->last_name;  ?></span>
-            <?
+            <?php
             }
 
           }
 
             ?>
-               
+
              <?php
 
 
@@ -153,7 +153,7 @@ require 'includes/display.php';
             <div class="col-lg-12 mb-12"><br>
 
               <!-- Project Card Example -->
-             
+
 
               <!-- Color System -->
               <div class="row">
@@ -171,7 +171,7 @@ require 'includes/display.php';
       while($data = mysqli_fetch_array($result)) {
       ?>
       <option name="product_bid" value="<?php echo $data['product_bid']; ?>"><?php echo $data['product_name']; ?></option>
-      <?php 
+      <?php
       }
 
       ?>
@@ -219,7 +219,7 @@ require 'includes/display.php';
             <div class="col-lg-12 mb-12"><br>
 
               <!-- Project Card Example -->
-             
+
 
               <!-- Color System -->
               <div class="row">
@@ -237,7 +237,7 @@ require 'includes/display.php';
       while($data = mysqli_fetch_array($result)) {
       ?>
       <option name="product_name" value="<?php echo $data['product_name']; ?>"><?php echo $data['product_name']; ?></option>
-      <?php 
+      <?php
       }
 
       ?>
@@ -303,7 +303,7 @@ require 'includes/display.php';
       while($data = mysqli_fetch_array($result)) {
       ?>
       <option value="<?php echo $data['product_name']; ?>"><?php echo $data['product_name']; ?></option>
-      <?php 
+      <?php
       }
 
       ?>
@@ -325,7 +325,7 @@ require 'includes/display.php';
                   <label>Expected Deleivery</label>
                   <input type="date" name="expected_delivery" placeholder="Expected Deleivery" class="form-control">
                 </div>
-               
+
               </div><br>
                <center>
                   <button class="btn btn-success btn-sm" name="submit_order">Order Now</button>
@@ -352,7 +352,7 @@ require 'includes/display.php';
             <div class="col-lg-12 mb-12">
 
               <!-- Project Card Example -->
-             
+
 
               <!-- Color System -->
               <div class="row">
@@ -371,7 +371,7 @@ require 'includes/display.php';
       while($data = mysqli_fetch_array($result)) {
       ?>
       <option value="<?php echo $data['product_name']; ?>"><?php echo $data['product_name']; ?></option>
-      <?php 
+      <?php
       }
 
       ?>
@@ -448,7 +448,7 @@ require 'includes/display.php';
       </div>
     </div>
   </div>
-          
+
   <?php
 include ('includes/script.php');
 

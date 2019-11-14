@@ -7,7 +7,7 @@ session_start();
     header('Location:'.$home_url);
     exit();
     }
-  if ($_SESSION['role']!='1') {
+  if ($_SESSION['role']!='2') {
       $home_url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/includes/logout.php';
       header('Location:'.$home_url);
       exit();

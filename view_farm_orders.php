@@ -1,7 +1,7 @@
 
 <?php
- include_once ('includes/ses.php');
-  include_once ('includes/db1.php');
+require 'includes/ses2.php';
+include_once ('includes/db1.php');
 
 
 ?>
@@ -277,48 +277,39 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+              <h6 class="m-0 font-weight-bold text-primary">All Farm Orders</h6>
             </div>
             <div class="card-body">
-              <!-- <?php
-              if(isset($_GET['error']))
-              {
-              if($_GET['error'] =="Successful"){
-              echo '<div class="alert alert-success" role="alert">Supervisor Deleted Successfully!</div>';
-              }
-              elseif ($_GET['error'] == "error") {
-              echo '<div class="alert alert-danger" role="alert">An Error Occured! Please Try Again!</div>';
-              }
-            }
-
-               ?>
               <div class="table-responsive">
-                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
+                 <table class="table table-bordered table-stripped" id="farm_orders" width="100%" cellspacing="0">
+                  <thead class="bg-primary">
+                    <tr class="text-bold text-white">
+                      <th><span class="fa fa-user"></span>&nbsp;Farmer</th>
                       <th>Item</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
-                      <th>Delivery Date</th>
-                      <th>Status</th>
-                      <th>Action</th>
+                      <th><span class="fa fa-coins"></span>&nbsp;Price</th>
+                      <th><span class="fa fa-list"></span>&nbsp;Quantity</th>
+                      <th><span class="fa fa-calendar"></span>&nbsp;Order Date</th>
+                      <th><span class="fa fa-cog"></span>&nbsp;Status</th>
+                      <th><span class="fa fa-tools"></span>&nbsp;Actions</th>
                     </tr>
                   </thead>
                   <tfoot>
-                    <tr>
+                    <tr class="text-bold">
+                      <th>Farmer</th>
                       <th>Item</th>
                       <th>Price</th>
                       <th>Quantity</th>
-                      <th>Delivery Date</th>
+                      <th>Order Date</th>
                       <th>Status</th>
-                      <th>Action</th>
+                      <th>Actions</th>
                     </tr>
                   </tfoot>
                   <tbody>
                    <?php
                   include_once ('includes/fetch.php');
                    while($data = mysqli_fetch_array($result)) {  ?>
-                    <tr>
+                    <tr class="text-center">
+                      <td> <?php echo $data['first_name']; ?>&nbsp;<?php echo $data['last_name']; ?></td>
                       <td> <?php echo $data['product_name']; ?></td>
                       <td> <?php echo $data['product_price']; ?></td>
                       <td> <?php echo $data['product_quantity']; ?></td>
@@ -330,7 +321,7 @@
                       }
                       elseif($data['status' == 1])
                       {
-                      	echo "<i class='text-success '>Delivered</i>";
+                      	echo "<i class='text-success'>Delivered</i>";
                       }
                        ?></td>
                        <td><a href="edit_admins.php?na=<?php echo $data['order_id']; ?>"><button type="button" class="btn btn-info btn-sm">Edit</button></a>
@@ -357,7 +348,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Your Website <?php echo date("Y"); ?></span>
           </div>
         </div>
       </footer>
@@ -375,7 +366,6 @@
   </a>
 
   <!-- Logout Modal-->
-   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -410,6 +400,16 @@
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+          $(document).ready(function() {
+          $('#farm_orders').DataTable();
+          } );
+    </script>
+
 
 </body>
 
